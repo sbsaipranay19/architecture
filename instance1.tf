@@ -10,10 +10,8 @@ resource "aws_instance" "example-1a" {
 
   user_data = <<-EOF
               #!/bin/bash
-              sudo apt update
-              sudo apt install apache2
-              sudo apt install php libapache2-mod-php
-              sudo systemctl restart apache2
+              echo "Hello, World" > index.html
+              nohup busybox httpd -f -p "${var.server_port}" &
               EOF
   tags = {
     Name = "ec2-instance-1a"
@@ -29,10 +27,8 @@ resource "aws_instance" "example-1b" {
 
   user_data = <<-EOF
               #!/bin/bash
-              sudo apt update
-              sudo apt install apache2
-              sudo apt install php libapache2-mod-php
-              sudo systemctl restart apache2
+              echo "Hello, World" > index.html
+              nohup busybox httpd -f -p "${var.server_port}" &
               EOF
   tags = {
     Name = "ec2-instance-1b"
