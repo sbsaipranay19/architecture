@@ -43,3 +43,4 @@ resource "aws_alb_target_group_attachment" "web-tga2" {
   target_id = aws_instance.example-1a.id
   port = "${var.server_port}"
 }
+MG
